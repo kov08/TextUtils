@@ -10,12 +10,14 @@ export default function TextForm(props) {
         // console.log("Upper case was clicked" + text);
         let newText = text.toUpperCase()
         setText(newText)    
+        props.showAlert("Converted to upper case!!!","Sucess")
     }
      
     const handleLOClick=()=>{
         // console.log("Upper case was clicked" + text);
         let newText = text.toLowerCase()
         setText(newText) 
+        props.showAlert("Converted to lower case!!!","Sucess")
     }
 
     // const handleSymClick=()=>{
@@ -33,6 +35,7 @@ export default function TextForm(props) {
     const Cleartext=(event)=>{
         // console.log("on change");
         setText("")
+        props.showAlert("Text Cleared!!!","Sucess")
     }
     
     return (

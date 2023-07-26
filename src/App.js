@@ -11,11 +11,15 @@ function App() {
   const [mode, setmode] = useState('light');
   const [alert, setalert] = useState(null);
 
-  const showAlert = (message, type)=>{
+  const showAlert = (message, type )=>{  
+    // How can I add style of alert over here ?
       setalert({
         msg : message,
         type : type
       })
+      setTimeout(() => {
+        setalert(null)
+      }, 1500);
   
   }
 
@@ -24,11 +28,19 @@ function App() {
       setmode('dark');
       document.body.style.backgroundColor = '#012f5d';
       showAlert("Dark mode has been enabled", "success");
+      document.title="EDCRFV"
+      // setInterval(() => {
+      //   document.title="DARK MODE"
+      // }, 1500);
+      // setInterval(() => {
+      //   document.title="TEXTUTILS"
+      // }, 1900);
     }
     else{
-      setmode('light');
+      setmode('light'); 
       document.body.style.backgroundColor = 'White';
       showAlert("Light mode has been enabled", "success");
+      document.title="123123"
     }
   }
   return (
@@ -37,7 +49,7 @@ function App() {
 <Navbar title=" Portfolio " Link="2023" about= 'About'  mode={mode} toggleMode={toggleMode} />
 <Alert alert={alert}/>
 <div className="container" my-3="True"> 
-<TextForm heading="Get Desired Text Result" mode={mode}/>
+<TextForm showAlert={showAlert} heading="Get Desired Text Result" mode={mode}/>
 {/* <TextForm /> */}
 
 {/* <About /> */}
